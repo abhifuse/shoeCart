@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Filters" icon-name="standard:calibration">
+        <div class="slds-var-m-horizontal_medium">
+          
+            <section>
+                <h1>Category</h1>
+                <template if:true={categories.data}>
+                    <template
+                        for:each={categories.data.values}
+                        for:item="category"
+                    >
+                        <lightning-input
+                            key={category.value}
+                            label={category.label}
+                            data-filter="categories"
+                            data-value={category.value}
+                            type="checkbox"
+                            checked
+                            onchange={handleCheckboxChange}
+                        ></lightning-input>
+                    </template>
+                </template>
+                
+
+            </section>
+           
+        </div>
+    </lightning-card>
+</template>

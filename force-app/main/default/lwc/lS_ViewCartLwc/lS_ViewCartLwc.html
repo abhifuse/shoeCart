@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="View Cart" icon-name="standard:webcart">
+        <lightning-button label="Make an Order" variant="brand" slot="actions" onclick={handleSave} disabled={isDisable} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button label="Refresh Cart" variant="brand" slot="actions" onclick={handleRefresh} class="slds-m-left_x-small"></lightning-button>
+    <template if:true={cartList}>
+    <!--div style="height: 300px;"-->
+        <lightning-datatable 
+        key-field="Id" 
+        data={cartList} 
+        columns={columns}
+        onrowselection={handleRowSelected}
+        >
+        </lightning-datatable>
+    <!--/div-->
+    
+    <!--lightning-button variant="brand" label="Check Out" title="Save" onclick={handleSave} disabled={isDisable}
+                        class="slds-float_right slds-m-left_x-small"></lightning-button-->
+    </template>
+    <p slot="footer">
+        <b>Total Price</b> : {totalPrice} </p>
+    </lightning-card>
+    
+</template>

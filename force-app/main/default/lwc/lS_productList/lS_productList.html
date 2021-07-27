@@ -1,0 +1,55 @@
+<template>
+    <table class="slds-table slds-table_bordered slds-border_left slds-border_right">
+        <!--thead>
+            
+            <tr class="slds-line-height_reset">
+                <template for:each={prodList} for:item="prod"  for:index="index">
+                <th key={prod} class="slds-is-resizable" scope="col" >
+                   <div class="slds-truncate">
+                        Col1
+                    </div>
+                </th>
+                </template>
+            
+            </tr>
+            </thead-->
+        <tbody>
+            <template for:each={recomMap} for:item="mapKey">
+                <tr key={mapKey.key} class="slds-line-height_reset">
+                <!--div key={mapKey.key} class="slds-box slds-box_small"-->
+                    <template for:each={mapKey.value} for:item="rec">
+                        <td key={rec.Id} scope="col">
+                        <!--div key={rec.Id} class="slds-truncate" title="Name"-->
+                        <lightning-card title={rec.Name} >
+                            <lightning-button label="Add To Cart" slot="actions" value={rec.Id} onclick={handleCartClick} class="slds-m-left_x-small"></lightning-button>
+                            <div class="content">
+                                <img
+                                    src={rec.Image__c}
+                                    class="product slds-align_absolute-center"
+                                    alt="Product picture"
+                                    style="height: 70px;width: 70px"
+                                />
+                            </div>
+                            <p slot="footer">
+                            <b>Category</b> : {rec.Family}  &nbsp; &nbsp;
+                            <b>Size</b> : {rec.Size__c} &nbsp; &nbsp;
+                            <b>Price</b> : {rec.Price__c}
+                            <lightning-input type="number"  label="Enter a size" style="width: 50%;"  data-id={rec.Id} value={selectedSize} placeholder="size" onchange={handleSizechange}>
+                            </lightning-input>
+                            
+                            
+                        </p>
+                            
+                            </lightning-card>
+                        <!--/div-->
+                    </td>
+                    </template>
+
+                <!--/div-->
+            </tr>
+            
+        </template>
+        </tbody>
+      </table>
+    
+</template>

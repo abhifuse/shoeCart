@@ -1,0 +1,22 @@
+<aura:component controller="LS_ProductDetailList" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global">
+	<aura:html tag="style">
+        .slds-modal__container{ 
+        <!-- height : auto; width: auto%; max-width: auto%; -->
+        height : auto; width: 48%; max-width: 48%; 
+        } 
+        .modal-body{ 
+        height : 80% !important; 
+        max-height: 85vh !important; 
+        padding: 0%;
+        padding-bottom: 9px;
+        } 
+        .slds-modal__footer{ 
+        background: unset !important;
+        box-shadow : none !important; 
+        }
+        .last{
+        text-align: left; 
+        vertical-align: middle; 
+        }
+    </aura:html>
+</aura:component>
